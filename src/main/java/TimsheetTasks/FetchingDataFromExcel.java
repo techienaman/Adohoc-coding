@@ -11,14 +11,17 @@ import java.io.IOException;
 import java.util.HashMap;
 
 public class FetchingDataFromExcel {
+    static HashMap<String, String> hashMap1;
+    static   HashMap<String, String> hashMap2;
+
 
     public static void main(String[] args) throws IOException {
         createHashMap(findColumnValue(getSheet()),getSheet());
     }
 
     public static void createHashMap(int[] arr, XSSFSheet sheet) {
-        HashMap<String, String> hashMap1 = new HashMap<String, String>();
-        HashMap<String, String> hashMap2 = new HashMap<String, String>();
+         hashMap1 = new HashMap<String, String>();
+         hashMap2 = new HashMap<String, String>();
 
 
         for (int i = 1; i <= sheet.getLastRowNum(); i++) {
@@ -59,5 +62,11 @@ public class FetchingDataFromExcel {
         XSSFWorkbook workbook = new XSSFWorkbook(fis);
         XSSFSheet sheet = workbook.getSheet("Sheet1");
         return sheet;
+    }
+
+
+    public static String getFGName(String str){
+       return  hashMap1.get(str);
+
     }
 }

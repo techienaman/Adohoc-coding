@@ -1,5 +1,6 @@
 package TimsheetTasks;
 
+import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -16,7 +17,8 @@ public class FetchingDataFromExcel {
 
 
     public static void main(String[] args) throws IOException {
-        createHashMap(findColumnValue(getSheet()),getSheet());
+      //  createHashMap(findColumnValue(getSheet()),getSheet());
+        generateRandomStringUtils();
     }
 
     public static void createHashMap(int[] arr, XSSFSheet sheet) {
@@ -69,4 +71,12 @@ public class FetchingDataFromExcel {
        return  hashMap1.get(str);
 
     }
+
+    public static String generateRandomStringUtils(){
+        String str="Auto/";
+      String rand_int=  RandomStringUtils.randomAlphanumeric(10);
+        String finalString=str+rand_int;
+        return finalString;
+    }
+
 }
